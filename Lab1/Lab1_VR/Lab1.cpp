@@ -1,17 +1,19 @@
 #include <iostream>
+#include <conio.h>
 using namespace std;
 
-class kom_chyslo {
+//Ромашко Владислав КІ-21012б
+
+class kom_chyslo{
 private:
 	float a, b; 
-
 public:
-	kom_chyslo(float a, float b) { //êîíñòðóêòîð ç ïàðàìåòðîì
+	kom_chyslo(float a, float b) { //конструктор з параметром
 		this->a = a;
 		this->b = b;
 	}
 
-	kom_chyslo() { //êîíñòðóêòîð áåç ïàðàìåòðà
+	kom_chyslo() { //конструктор без параметра
 		this->a = 0;
 		this->b = 0;
 	}
@@ -33,13 +35,16 @@ public:
 	}
 
 	void print() {
-		cout << this->a << " ± " << this->b;
+		cout << this->a << " +- " << this->b;
 
 	}
 };
 
-int main() {
-	kom_chyslo a = kom_chyslo(2.4, 5.3);
-	a.print();
+void main() {
+	float A, B;
+	cout << "Enter the float number for value A and B (with space):" << endl;
+	cin >> A >> B;
+	kom_chyslo _a = kom_chyslo(A, B);
+	_a.print(); cout << endl;
+	_getch();
 }
-
