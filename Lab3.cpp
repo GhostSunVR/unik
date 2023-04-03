@@ -5,7 +5,7 @@
 
 #define FileName "data.txt" 
 
-constexpr auto ClassFormat = "Surname Name Math Physics PcScience AVG"; //формат вивода
+constexpr auto ClassFormat = "Surname Name Math Physics PcScience AVG"; //С„РѕСЂРјР°С‚ РІРёРІРѕРґР°
 
 using namespace std;
 
@@ -13,11 +13,11 @@ class Student {
 private:
 	string surname;
 	string name;
-	int marks[3]; //оцінки
-	float AVG; //середній бал (авто) 28 строка
+	int marks[3]; //РѕС†С–РЅРєРё
+	float AVG; //СЃРµСЂРµРґРЅС–Р№ Р±Р°Р» (Р°РІС‚Рѕ) 28 СЃС‚СЂРѕРєР°
 public:
 
-	Student(string surname, string name, int* marks) { //конструктор з параметрами
+	Student(string surname, string name, int* marks) { //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р· РїР°СЂР°РјРµС‚СЂР°РјРё
 		this->surname = surname;
 		this->name = name;
 		this->marks[0] = marks[0];
@@ -26,15 +26,15 @@ public:
 		this->AVG = (this->marks[0] + this->marks[1] + this->marks[2]) / 3;
 	}
 
-	friend ostream& operator<<(ostream& stream, const Student& obj); //переписує оператор вивода
-	bool operator<(const Student& a) { //переписує оператор менше
-		return (this->AVG > a.AVG); //перевірка на більше
+	friend ostream& operator<<(ostream& stream, const Student& obj); //РїРµСЂРµРїРёСЃСѓС” РѕРїРµСЂР°С‚РѕСЂ РІРёРІРѕРґР°
+	bool operator<(const Student& a) { //РїРµСЂРµРїРёСЃСѓС” РѕРїРµСЂР°С‚РѕСЂ РјРµРЅС€Рµ
+		return (this->AVG > a.AVG); //РїРµСЂРµРІС–СЂРєР° РЅР° Р±С–Р»СЊС€Рµ
 	}
 	float getAVG() { return AVG; }
 
 };
 
-ostream& operator <<(ostream& stream, const Student& obj) { //оператор вивода (срокове представлення об)
+ostream& operator <<(ostream& stream, const Student& obj) { //РѕРїРµСЂР°С‚РѕСЂ РІРёРІРѕРґР° (СЃСЂРѕРєРѕРІРµ РїСЂРµРґСЃС‚Р°РІР»РµРЅРЅСЏ РѕР±)
 	return stream << obj.surname << " " << obj.name << " " << obj.marks[0] << " " << obj.marks[1] << " " << obj.marks[2] << " " << obj.AVG << endl;
 }
 
@@ -45,11 +45,11 @@ int main() {
 
 
 
-	while (!file.eof()) { //перевірка на кінець файлу
+	while (!file.eof()) { //РїРµСЂРµРІС–СЂРєР° РЅР° РєС–РЅРµС†СЊ С„Р°Р№Р»Сѓ
 		string surname, name; int marks[3] = { 0,0,0 };
 		file >> surname >> name >> marks[0] >> marks[1] >> marks[2];
-		Student tmpStudentData(surname, name, marks); //створюємо об'єкт і засовуємо в нього дані
-		students.push_back(tmpStudentData); //додаємо в кінець ліста - об'єкт
+		Student tmpStudentData(surname, name, marks); //СЃС‚РІРѕСЂСЋС”РјРѕ РѕР±'С”РєС‚ С– Р·Р°СЃРѕРІСѓС”РјРѕ РІ РЅСЊРѕРіРѕ РґР°РЅС–
+		students.push_back(tmpStudentData); //РґРѕРґР°С”РјРѕ РІ РєС–РЅРµС†СЊ Р»С–СЃС‚Р° - РѕР±'С”РєС‚
 	}
 
 	students.sort();
@@ -57,6 +57,6 @@ int main() {
 	cout << ClassFormat << endl;
 
 	for (Student i : students) {
-		cout << i; //виводимо кожен елемент ліста
+		cout << i; //РІРёРІРѕРґРёРјРѕ РєРѕР¶РµРЅ РµР»РµРјРµРЅС‚ Р»С–СЃС‚Р°
 	}
 }
